@@ -4,7 +4,7 @@ def split_at_digit(formula):
 
     for ch in formula:
         if ch.isdigit():
-            digits += ch
+           digits += ch
         else:
             if digits:
                 break
