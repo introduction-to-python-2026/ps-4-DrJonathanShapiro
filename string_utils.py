@@ -1,19 +1,9 @@
 def split_at_digit(formula):
-    prefix = ""
-    digits = ""
-
-    for ch in formula:
+    for i, ch in enumerate(formula):
         if ch.isdigit():
-           digits += ch
-        else:
-            if digits:
-                break
-            prefix += ch
+            return formula[:i], int(formula[i:])
+    return formula, 1
 
-    if digits:
-        return prefix, int(digits)
-    else:
-        return formula, 1
 
 def split_before_each_uppercase(formula):
     parts = []
@@ -24,6 +14,7 @@ def split_before_each_uppercase(formula):
             parts.append(formula[start:i])
             start = i
 
-    parts.append(formula[start:])   # Add the last chunk
-    return parts
+    if formula:          
+        parts.append(formula[start:])
 
+    return parts
